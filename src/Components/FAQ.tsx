@@ -2,17 +2,30 @@
 
 import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, Mail } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { cn } from "../lib/utils"
 import { Button } from "./ui/button"
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface FaqSectionProps {
+  className?: string;
+  title: string;
+  description: string;
+  items: FaqItem[];
+}
+
 // FaqSection Component
-const FaqSection = React.forwardRef(({ className, title, description, items, ...props }, ref) => {
+const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>((props, ref) => {
+  const { className, title, description, items } = props;
+  
   return (
     <section
       ref={ref}
       className={cn("py-8 sm:py-12 md:py-16 w-full bg-white text-black", className)}
-      {...props}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
@@ -30,19 +43,24 @@ const FaqSection = React.forwardRef(({ className, title, description, items, ...
 
         {/* FAQ Items */}
         <div className="max-w-[90%] sm:max-w-[95%] lg:max-w-[1480px] mx-auto text-left space-y-2 sm:space-y-3">
-          {items.map((item, index) => (
+          {items.map((item: FaqItem, index: number) => (
             <FaqItem key={index} question={item.question} answer={item.answer} index={index} />
           ))}
         </div>
-
       </div>
     </section>
   )
 })
 FaqSection.displayName = "FaqSection"
 
+interface FaqItemProps {
+  question: string;
+  answer: string;
+  index: number;
+}
+
 // Internal FaqItem component
-const FaqItem = React.forwardRef((props, ref) => {
+const FaqItem = React.forwardRef<HTMLDivElement, FaqItemProps>((props, ref) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const { question, answer, index } = props
 
@@ -123,7 +141,6 @@ FaqItem.displayName = "FaqItem"
 
 // Main FAQ Component with example data
 function FAQ() {
-  // Example FAQ items
   const faqItems = [
     {
       question: "How does your AI invoice processing work?",
@@ -163,7 +180,6 @@ function FAQ() {
   )
 }
 
-// Export both components
 export { FaqSection }
 export default FAQ
 

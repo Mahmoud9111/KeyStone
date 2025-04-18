@@ -6,13 +6,11 @@ export default function Aboutus() {
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const ref4 = useRef(null);
-  const ref5 = useRef(null);
 
   const isInView1 = useInView(ref1, { once: true, amount: 0.5 });
   const isInView2 = useInView(ref2, { once: true, amount: 0.5 });
   const isInView3 = useInView(ref3, { once: true, amount: 0.5 });
   const isInView4 = useInView(ref4, { once: true, amount: 0.5 });
-  const isInView5 = useInView(ref5, { once: true, amount: 0.5 });
 
   return (
     <main className="flex flex-col items-center justify-center px-4 py-12 md:py-24 max-w-5xl mx-auto">

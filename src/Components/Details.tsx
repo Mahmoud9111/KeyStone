@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Minus, Plus } from "lucide-react"
 import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
 
 interface QAItem {
   id: string
