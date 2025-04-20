@@ -44,7 +44,7 @@ export default function Hero() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          src="../../public/images/hero.avif"
+          src="images/hero.avif"
           alt="Modern luxury home with minimalist architecture"
           width={900}
           height={300}
