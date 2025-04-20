@@ -4,7 +4,7 @@ import Projects from './Components/Projects'
 import QA from './Components/Details'
 import Discover from './Components/Discover'
 import FAQ from './Components/FAQ'
-import Footer from './Components/footer'
+import Footer from './Components/Footer'
 import { mockProperties } from './lib/propertyData'
 import './App.css'
 
